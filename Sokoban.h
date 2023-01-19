@@ -79,21 +79,28 @@ void Sokoban::graj() {
 			wypisz();
 		}
 		if (choice == "s") {
-			level1[gracz.getx()][gracz.gety()] = '.';
-			level1[gracz.getx() + 1][gracz.gety()] = gracz.Znak();
-			gracz.moveDOWN();
+			if (level1[gracz.getx() + 1][gracz.gety()] == '.'){
+				level1[gracz.getx()][gracz.gety()] = '.';
+				level1[gracz.getx() + 1][gracz.gety()] = gracz.Znak();
+				gracz.moveDOWN();
+			}
 			wypisz();
 		}
 		if (choice == "a") {
-			level1[gracz.getx()][gracz.gety()] = '.';
-			level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
-			gracz.moveL();
+			if (level1[gracz.getx()][gracz.gety() - 1] == '.'){
+				level1[gracz.getx()][gracz.gety()] = '.';
+				level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
+				gracz.moveL();
+			}
 			wypisz();
 		}
 		if (choice == "d") {
-			level1[gracz.getx()][gracz.gety()] = '.';
-			level1[gracz.getx()][gracz.gety() + 1] = gracz.Znak();
-			gracz.moveR();
+			if (level1[gracz.getx()][gracz.gety() + 1] == '.'){
+				level1[gracz.getx()][gracz.gety()] = '.';
+				level1[gracz.getx()][gracz.gety() + 1] = gracz.Znak();
+				gracz.moveR();
+			}
+
 			wypisz();
 		}
 	}
