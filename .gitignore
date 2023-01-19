@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/x64/Debug/Sokoban.exe
+/x64/Debug/Sokoban.pdb
+/x64/Debug/Sokoban.tlog/Sokoban.lastbuildstate
+/x64/Debug/Sokoban.tlog/link.write.1.tlog
+/x64/Debug/Sokoban.tlog/link.read.1.tlog
+/x64/Debug/Sokoban.tlog/link.command.1.tlog
+/x64/Debug/Sokoban.tlog/CL.write.1.tlog
+/x64/Debug/Sokoban.tlog/CL.read.1.tlog
+/x64/Debug/Sokoban.tlog
+/x64/Debug/vcpkg.applocal.log
+/x64/Debug
