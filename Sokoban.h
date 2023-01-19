@@ -7,12 +7,30 @@ using std::cin;
 using std::endl;
 using std::string;
 
-char level1[5][7] = {	'#','#','#','#','#','#','#',
+const int x = 5;
+const int y = 7;
+char level1[x][y] = {	'#','#','#','#','#','#','#',
 						'#','.','.','.','.','.','#',
 						'#','.','@','o','_','.','#',
 						'#','.','.','.','.','.','#',
 						'#','#','#','#','#','#','#'
 };
+
+
+class Level {
+public:
+	Level(char &c,int x,int y) {
+
+	}
+
+private:
+	Aktor gracz = Aktor('@');
+	Aktor skrz = Aktor('o');
+	Aktor cel = Aktor('_');
+	Aktor podloga = Aktor('_');
+	Aktor sciana = Aktor('#');
+};
+
 
 class Aktor {
 public:
