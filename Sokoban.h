@@ -71,9 +71,11 @@ void Sokoban::graj() {
 	while (choice != "x"){
 		cin >> choice;
 		if (choice == "w"){
-			level1[gracz.getx()][gracz.gety()] = '.';
-			level1[gracz.getx()-1][gracz.gety()] = gracz.Znak();
-			gracz.moveUP();
+			if (level1[gracz.getx()-1][gracz.gety()] == '.'){
+				level1[gracz.getx()][gracz.gety()] = '.';
+				level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+				gracz.moveUP();
+			}
 			wypisz();
 		}
 		if (choice == "s") {
