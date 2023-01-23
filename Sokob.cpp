@@ -28,6 +28,6 @@
 
 
 int main() {
-	Sokoban sok;
-	sok.graj();
+	sokobanV2 sok;
+	sok.play();
 }
