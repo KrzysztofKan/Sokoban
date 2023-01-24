@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include <string>
 
 #include "Sokoban.h"
+#include "SokobanV2.h"
 
 //Gra Sokoban
 //
@@ -28,6 +28,6 @@
 
 
 int main() {
-	sokobanV2 sok;
+	Sokoban sok;
 	sok.play();
 }
