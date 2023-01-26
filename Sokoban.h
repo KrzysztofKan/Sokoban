@@ -1,13 +1,10 @@
 #pragma once
 #include <istream>
 
-
-
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
-
 
 const int x = 5;
 const int y = 7;
@@ -17,8 +14,6 @@ char level1[x][y] = {	'#','#','#','#','#','#','#',
 						'#','.','.','.','.','.','#',
 						'#','#','#','#','#','#','#'
 };
-
-
 
 class Aktor {
 public:
@@ -39,6 +34,9 @@ public:
 	}
 	char pod() {
 		return pd;
+	}
+	void pods(char z){
+		pd = z;
 	}
 	void SetPos(int x, int y) {
 		posX = x;
@@ -95,7 +93,22 @@ void Sokoban::play() {
 			if (level1[gracz.getx()-1][gracz.gety()] == '.'){
 				level1[gracz.getx()][gracz.gety()] = gracz.pod();
 				level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+				gracz.pods('.');
 				gracz.moveUP();
+			}
+			if (level1[gracz.getx() - 1][gracz.gety()] == '_') {
+				if (level1[cel.getx() -1][cel.gety()] == '.') {
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+					gracz.pods('_');
+					gracz.moveUP();
+				}
+				if (level1[cel.getx() - 1][cel.gety()] == 'o') {
+					gracz.pods('.');
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+					gracz.moveUP();
+				}
 			}
 			if (level1[gracz.getx() - 1][gracz.gety()] == 'o'){
 				if (level1[skrz.getx() - 1][skrz.gety()] == '.'){
@@ -105,6 +118,20 @@ void Sokoban::play() {
 					gracz.moveUP();
 					skrz.moveUP();
 				}
+				if (level1[skrz.getx() - 1][skrz.gety()] == '_') {
+					if (level1[cel.getx() - 1][cel.gety()] == '.') {
+						level1[gracz.getx()][gracz.gety()] = gracz.pod();
+						level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+						gracz.pods('_');
+						gracz.moveUP();
+					}
+					if (level1[cel.getx() - 1][cel.gety()] == 'o') {
+						gracz.pods('.');
+						level1[gracz.getx()][gracz.gety()] = gracz.pod();
+						level1[gracz.getx() - 1][gracz.gety()] = gracz.Znak();
+						gracz.moveUP();
+					}
+				}
 			}
 			wypisz();
 		}
@@ -112,7 +139,22 @@ void Sokoban::play() {
 			if (level1[gracz.getx() + 1][gracz.gety()] == '.'){
 				level1[gracz.getx()][gracz.gety()] = gracz.pod();
 				level1[gracz.getx() + 1][gracz.gety()] = gracz.Znak();
+				gracz.pods('.');
 				gracz.moveDOWN();
+			}
+			if (level1[gracz.getx() + 1][gracz.gety()] == '_') {
+				if (level1[cel.getx() + 1][cel.gety()] == '.') {
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx() + 1][gracz.gety()] = gracz.Znak();
+					gracz.pods('_');
+					gracz.moveDOWN();
+				}
+				if (level1[cel.getx() + 1][cel.gety()] == 'o') {
+					gracz.pods('.');
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx() + 1][gracz.gety()] = gracz.Znak();
+					gracz.moveDOWN();
+				}
 			}
 			if (level1[gracz.getx() + 1][gracz.gety()] == 'o') {
 				if (level1[skrz.getx() + 1][skrz.gety()] == '.') {
@@ -129,9 +171,24 @@ void Sokoban::play() {
 			if (level1[gracz.getx()][gracz.gety() - 1] == '.'){
 				level1[gracz.getx()][gracz.gety()] = gracz.pod();
 				level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
+				gracz.pods('.');
 				gracz.moveL();
 			}
-			if (level1[gracz.getx()][gracz.gety()-1] == 'o') {
+			if (level1[gracz.getx()][gracz.gety() - 1] == '_') {
+				if (level1[cel.getx()][cel.gety()-1] == '.') {
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
+					gracz.pods('_');
+					gracz.moveL();
+				}
+				if (level1[cel.getx()][cel.gety() - 1] == 'o') {
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
+					gracz.pods('_');
+					gracz.moveL();
+				}
+			}
+			if (level1[gracz.getx()][gracz.gety() - 1] == 'o') {
 				if (level1[skrz.getx()][skrz.gety() - 1] == '.') {
 					level1[skrz.getx()][skrz.gety() - 1] = skrz.Znak();
 					level1[gracz.getx()][gracz.gety() - 1] = gracz.Znak();
@@ -146,7 +203,22 @@ void Sokoban::play() {
 			if (level1[gracz.getx()][gracz.gety() + 1] == '.'){
 				level1[gracz.getx()][gracz.gety()] = gracz.pod();
 				level1[gracz.getx()][gracz.gety() + 1] = gracz.Znak();
+				gracz.pods('.');
 				gracz.moveR();
+			}
+			if (level1[gracz.getx()][gracz.gety() + 1] == '_') {
+				if (level1[cel.getx()][cel.gety() + 1] == '.') {
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx()][gracz.gety() + 1] = gracz.Znak();
+					gracz.pods('_');
+					gracz.moveR();
+				}
+				if (level1[cel.getx()][cel.gety() + 1] == 'o') {
+					gracz.pods('.');
+					level1[gracz.getx()][gracz.gety()] = gracz.pod();
+					level1[gracz.getx()][gracz.gety() + 1] = gracz.Znak();
+					gracz.moveR();
+				}
 			}
 			if (level1[gracz.getx()][gracz.gety() + 1] == 'o') {
 				if (level1[skrz.getx()][skrz.gety() + 1] == '.') {
@@ -158,6 +230,10 @@ void Sokoban::play() {
 				}
 			}
 			wypisz();
+		}
+		if (skrz.getx()==cel.getx()&& skrz.gety() == cel.gety()){
+			cout << "you won";
+			choice = 'x';
 		}
 	}
 }

@@ -28,6 +28,7 @@
 
 
 int main() {
+	
 	Sokoban sok;
 	sok.play();
 }
